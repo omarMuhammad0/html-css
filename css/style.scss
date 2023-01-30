@@ -1441,6 +1441,10 @@ footer .div-3 div {
   align-items: center;
 }
 
+footer .div-3 div:last-child {
+  align-items: stretch;
+}
+
 footer .div-3 div i {
   color: var(--main-color);
   padding-right: 15px;

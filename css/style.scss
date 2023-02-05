@@ -175,7 +175,7 @@ header ul .nav-a:hover .header-icon {
   }
 
   header ul .nav-a {
-    padding: 10px;
+    padding: 8px;
     font-size: 14px;
     height: 40px;
   }
@@ -186,6 +186,8 @@ header ul .nav-a:hover .header-icon {
 
   header {
     height: fit-content;
+    display: flex;
+    justify-content: center;
   }
 }
 
@@ -376,88 +378,59 @@ header .nav .other:hover .other-links {
   align-items: center;
   margin-bottom: 150px;
 }
-.section-one .text > div {
-  position: relative;
-  white-space: nowrap;
-  width: 0;
-  animation: typing-effect-1 1.5s 0.5s both;
+
+.section-one .text {
   overflow: hidden;
 }
 
+@media (max-width: 768px) {
+  .section-one .container {
+    justify-content: center;
+  }
+
+  .section-one .text {
+    width: 100%;
+  }
+}
 .section-one h1 {
   color: var(--main-color);
-  font-size: 40px;
-  position: relative;
+  animation: p-move 1.5s forwards ease-in-out;
+  font-size: 2.3rem;
 }
-@keyframes typing-effect-1 {
-  from {
-    width: 0;
-  }
-  to {
-    width: 100%;
-  }
-}
-@media (max-width: 768px) {
-  .section-one .text > div {
-    width: 331px;
-  }
-  @keyframes typing-effect {
-    from {
-      width: 0;
-    }
-    to {
-      width: 100%;
-    }
-  }
-}
-.section-one .p {
-  color: #686868;
-  font-size: 20px;
-  line-height: 1.5;
-  position: relative;
-  white-space: nowrap;
-  width: 0;
-  overflow: hidden;
-}
-.section-one .p-1 {
-  animation: typing-effect-2 2s 2s both;
-}
-@keyframes typing-effect-2 {
-  from {
-    width: 0;
-  }
-  to {
-    width: 100%;
-  }
-}
-.section-one .p-2 {
-  animation: typing-effect-3 1s 4s both;
-}
-@keyframes typing-effect-3 {
-  from {
-    width: 0;
-  }
-  to {
-    width: 100%;
-  }
-}
-.section-one .start-date {
+
+.section-one p {
   color: var(--second-color);
-  font-size: 15px;
-  position: relative;
-  white-space: nowrap;
-  width: 0;
-  overflow: hidden;
-  animation: typing-effect-4 1s 5s both;
+  transform: translateX(-100%);
+  font-size: 1.2rem;
 }
-@keyframes typing-effect-4 {
+
+.section-one p:last-child {
+  opacity: 0.7;
+}
+
+.section-one .p-1 {
+  animation: p-move 1.5s 1.5s forwards ease-in-out;
+}
+
+.section-one .p-2 {
+  animation: p-move 0.7s 3s forwards ease-in-out;
+}
+
+.section-one .start-date {
+  animation: p-move 0.5s 3.7s forwards ease-in-out;
+  font-size: 0.8rem;
+}
+
+@keyframes p-move {
   from {
-    width: 0;
+    transform: translateX(-100%);
   }
+
   to {
-    width: 100%;
+    transform: translateX(0);
   }
 }
+
 .section-one img {
   position: absolute;
   width: 600px;
@@ -523,6 +496,12 @@ header .nav .other:hover .other-links {
   }
 }
 
+@media (max-height: 570px) {
+  .section-one img {
+    animation: up-and-down-very-small 4s linear infinite;
+  }
+}
+
 @media (min-width: 768px) {
   .section-one::after {
     content: "";
@@ -572,6 +551,17 @@ header .nav .other:hover .other-links {
 
   50% {
     bottom: 290px;
+  }
+}
+
+@keyframes up-and-down-very-small {
+  0%,
+  100% {
+    bottom: 150px;
+  }
+
+  50% {
+    bottom: 180px;
   }
 }
 
